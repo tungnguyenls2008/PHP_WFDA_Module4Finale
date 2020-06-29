@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../crud/book';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CrudService } from '../../crud-base/crud.service';
+import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-update-book',
@@ -45,4 +45,7 @@ export class UpdateBookComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/books']);
   }
+}
+
+export class UpdateComponent {
 }
