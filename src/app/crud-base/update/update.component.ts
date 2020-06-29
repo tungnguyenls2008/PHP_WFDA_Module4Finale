@@ -2,50 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../../crud/book';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../crud.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-update-book',
-  templateUrl: './update-book.component.html',
-  styleUrls: ['./update-book.component.css']
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class UpdateBookComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   id: number;
   book: Book;
+  bookForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private router: Router,
-              private crudService: CrudService) { }
+  constructor(private route: ActivatedRoute, private crudService: CrudService, private navigate: Router) {
+  }
 
   ngOnInit() {
-    this.book = new class implements Book {
-      author: string;
-      description: string;
-      id: number;
-      title: string;
-      updateBook(id: number, book: Book): any {
-      }
-    }();
-
-    this.id = this.route.snapshot.params.id;
-
-    this.crudService.getById(this.id)
-      .subscribe(data => {
-        console.log(data);
-        this.book = data;
-      }, error => console.log(error));
   }
 
-  updateBook() {
+  onSubmit(bookF: Book) {
+    this.crudService.update(this.id, bookF)
+      .subscribe( () => {
+        this.navigate.navigate(['/books']);
+      });
   }
 
-  onSubmit() {
-    this.updateBook();
-  }
 
-  gotoList() {
-    this.router.navigate(['/books']);
-  }
 }
 
-export class UpdateComponent {
-}

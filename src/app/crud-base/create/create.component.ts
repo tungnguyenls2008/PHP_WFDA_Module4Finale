@@ -30,7 +30,7 @@ export class CreateComponent implements OnInit {
   submitForm() {
     this.crudService.create(this.bookForm.value).subscribe(res => {
       console.log('Book created!');
-      this.router.navigateByUrl('/crud/home/'); }
+      this.router.navigateByUrl('/books'); }
     );
 
   }

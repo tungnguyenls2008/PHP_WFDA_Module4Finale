@@ -6,11 +6,10 @@ import { CreateComponent } from './crud-base/create/create.component';
 import { UpdateComponent } from './crud-base/update/update.component';
 
 const routes: Routes = [
-  { path: 'crud', redirectTo: 'crud/home', pathMatch: 'full'},
-  { path: 'crud/home', component: HomeBookComponent },
-  { path: 'crud/details/:bookId', component: DetailsComponent },
-  { path: 'crud/create', component: CreateComponent },
-  { path: 'crud/update/:bookId', component: UpdateComponent }
+  { path: 'books', component: HomeBookComponent },
+  { path: 'books/:bookId/show', component: DetailsComponent },
+  { path: 'books/create', component: CreateComponent },
+  { path: 'books/:bookId/edit', component: UpdateComponent },
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ import { DetailsComponent } from './crud-base/details/details.component';
 import { CreateComponent } from './crud-base/create/create.component';
 import { UpdateComponent } from './crud-base/update/update.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

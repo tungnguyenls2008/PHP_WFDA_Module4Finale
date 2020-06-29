@@ -1,6 +1,6 @@
 <div>
-  <h1>My Books</h1>
-  <button type="button" [routerLink]="['/crud/create/']" > Create new book</button>
+  <h1>My dfsdfd</h1>
+  <button type="button"  [routerLink]="['/books', 'create']"> Create new book</button>
   <table>
     <thead>
     <tr>
@@ -12,14 +12,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let book of books">
-      <td>{{book.id}}</td>
+    <tr *ngFor="let book of books; let i = index">
+      <td>{{i+1}}</td>
       <td>{{book.title}}</td>
       <td>{{book.author}}</td>
       <td>{{book.description}}</td>
       <td>
-        <button type="button" [routerLink]="['/crud/update/', book.id]">Update</button>
-        <button type="button" (click)="crudService.delete(book.id)">Remove</button>
+        <button type="button" [routerLink]="['/books', book.id, 'edit']">Update</button>
+        <button type="button" (click)="delete(book.id)">Remove</button>
       </td>
     </tr>
     </tbody>
