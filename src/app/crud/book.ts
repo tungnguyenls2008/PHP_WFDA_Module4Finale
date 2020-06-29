@@ -3,4 +3,6 @@ export interface Book {
   title: string;
   author: string;
   description: string;
+
+  updateBook(id: number, book: Book): any;
 }
